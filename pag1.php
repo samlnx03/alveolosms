@@ -162,6 +162,7 @@ for($alv=1; $alv<=5; $alv++){   // numero de la clave del examen
 	//plot_alveolo($centroxy,28,28);
 	$x+=66;   // distancia entre centros
 }
+/* no existe letra para el nivel medio superior 
 for($alv='A'; $alv<='C'; $alv++){  //     letra de la clave del examen
 	$centroxy['x']=$x;
 	$centroxy['y']=$y;
@@ -177,6 +178,7 @@ for($alv='A'; $alv<='C'; $alv++){  //     letra de la clave del examen
 	//plot_alveolo($centroxy,28,28);
 	$x+=66;   // distancia entre centros
 }
+ */
 	//if(rellenado($centroxy)) 
 
 if($DEPURANDO>=$DEPURACION_MEDIA)
@@ -185,7 +187,7 @@ else if($DEPURANDO==$RESULTADOS){
 	print "$clave_exam";
         print "$nsol";
 }
-if(strlen($clave_exam)<2) { echo "CLAVE DE EXAM ERRONEA $filename"; 
+if(strlen($clave_exam)!=1) { echo "CLAVE DE EXAM ERRONEA $filename"; 
 	//exit(1);
 }
 
@@ -246,7 +248,7 @@ for($preg=1,$nr=1; $nr<=14; $nr++,$preg++){
 	if($DEPURANDO>=$DEPURACION_BAJA) print "pregunta $pregs\n";
 	//if($DEPURANDO>=$DEPURACION_BAJA) print "*renglon ".($nr-1).", grupo ".(4-$gpo).", alveolo ".(4-1).",  centro en ".$centroxy['x'].",".$centroxy['y']."\n";
 
-	for($n=2; $n<=4; $n++){
+	for($n=2; $n<=5; $n++){ // 5 alveolos en medio superior
 		// siguiente alveolo  n
    		if($DEPURANDO>=$DEPURACION_MEDIA) print "alveolos $n\n";
 		$centroxy['x']=$centroxy['x']+15+37+15;  // del centro 15 para salir del alveolo, 37 entre alveolos y 15 al nuevo centro
@@ -260,7 +262,8 @@ for($preg=1,$nr=1; $nr<=14; $nr++,$preg++){
 		//if($DEPURANDO>=$DEPURACION_BAJA) print "pregunta $pregs\n";
 		//if($DEPURANDO>=$DEPURACION_BAJA) print "*renglon ".($nr-1).", grupo ".($gpo).", alveolo ".($n).",  centro en ".$centroxy['x'].",".$centroxy['y']."\n";
 	}
-	$x=$centroxy['x']+200;  // del centro de la resp D del grupo de la izquierda a la respuesta A, dentro del alveolo
+	//$x=$centroxy['x']+200;  // del centro de la resp D del grupo de la izquierda a la respuesta A, dentro del alveolo
+	$x=$centroxy['x']+135;  // del centro de la resp D del grupo de la izquierda a la respuesta A, dentro del alveolo
 	$y=$centroxy['y'];
 	if($DEPURANDO>=$DEPURACION_BAJA) print "\n";
    }  // sig gpo

@@ -119,7 +119,8 @@ for($preg=129,$nr=1; $nr<=24; $nr++,$preg+=97){  // numero de renglon, no exiten
 		if($DEPURANDO>=$DEPURACION_MEDIA) print "pregunta $preg\n";
 	if($DEPURANDO>=$DEPURACION_MEDIA) print "*renglon ".($nr-1).", grupo ".(4-$gpo).", alveolo ".(4-1).",  centro en ".$centroxy['x'].",".$centroxy['y']."\n";
 
-	for($n=2; $n<=4; $n++){
+	//for($n=2; $n<=4; $n++){
+	for($n=2; $n<=5; $n++){ // 5 alveolos en media superior
 		// siguiente alveolo  n
 		$centroxy['x']=$centroxy['x']-15-37-15;  // del centro 15 para salir del alveolo, 37 entre alveolos y 15 al nuevo centro
 		//verificar_tipo_alveolo($centroxy);
@@ -138,7 +139,8 @@ for($preg=129,$nr=1; $nr<=24; $nr++,$preg+=97){  // numero de renglon, no exiten
    	//exit;
 	//$x=$centroxy['x']-165;  // del centro de la resp 4 del grupo de la derecha a la respuesta D, punto de inicio de busqueda
 	//$y=$centroxy['y'];
-	$pxy[0]=$centroxy['x']-165;  // del centro de la resp 4 del grupo de la derecha a la respuesta D, punto de inicio de busqueda
+	//$pxy[0]=$centroxy['x']-165;  // del centro de la resp 4 del grupo de la derecha a la respuesta D, punto de inicio de busqueda
+	$pxy[0]=$centroxy['x']-75;  // del centro de la resp 4 del grupo de la derecha a la respuesta D, punto de inicio de busqueda
 	$pxy[1]=$centroxy['y'];
 	if($DEPURANDO>=$DEPURACION_MEDIA) print "\n";
    }  // sig gpo
