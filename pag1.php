@@ -145,13 +145,17 @@ if($DEPURANDO>=$DEPURACION_BAJA){
 //        CLAVE DE EXAMEN   un nume del 1 al 5 y una letra de A - C
 
 $clave_exam="";
-$x=$mt[9]['x']+170;
+//$x=$mt[9]['x']+170;
+$x=$mt[9]['x']+300;
 $y=$mt[9]['y'];
-for($alv=1; $alv<=5; $alv++){   // numero de la clave del examen
+for($alv=1; $alv<=4; $alv++){   // numero de la clave del examen   1 a 4 para media superior
 	$centroxy['x']=$x;
 	$centroxy['y']=$y;
 	$centroxy=ajusta_centro($centroxy);
-	if($DEPURANDO>=$DEPURACION_MEDIA) print "clave de examen, centro alveolo $alv corregido en ".$centroxy['x'].",".$centroxy['y']."\n";
+	if($DEPURANDO>=$DEPURACION_MEDIA) {
+		print "clave de examen, centro alveolo $alv corregido en ".$centroxy['x'].",".$centroxy['y']."\n";
+		plot_alveolo($centroxy,10,10);  // resalta el relleno
+	}
 	$x=$centroxy['x'];
 	$y=$centroxy['y'];
 	$gris=gris_alveolo($x,$y,28,28);
@@ -160,7 +164,7 @@ for($alv=1; $alv<=5; $alv++){   // numero de la clave del examen
 		plot_alveolo($centroxy,40,40);  // resalta el relleno
 	}
 	//plot_alveolo($centroxy,28,28);
-	$x+=66;   // distancia entre centros
+	$x+=70-$alv; //  66;   // distancia entre centros
 }
 /* no existe letra para el nivel medio superior 
 for($alv='A'; $alv<='C'; $alv++){  //     letra de la clave del examen
@@ -187,7 +191,7 @@ else if($DEPURANDO==$RESULTADOS){
 	print "$clave_exam";
         print "$nsol";
 }
-if(strlen($clave_exam)!=1) { echo "CLAVE DE EXAM ERRONEA $filename"; 
+if(strlen($clave_exam)!=1) { echo "CLAVE DE EXAM ERRONEA ($clave_exam) $filename"; 
 	//exit(1);
 }
 
