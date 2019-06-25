@@ -112,12 +112,12 @@ for($preg=129,$nr=1; $nr<=24; $nr++,$preg+=97){  // numero de renglon, no exiten
 	$centroxy=ajusta_centro($centroxy);
 	if($DEPURANDO>=$DEPURACION_MEDIA) print "centro corregido en ".$centroxy['x'].",".$centroxy['y']."\n";
 		//-----------------------------------
-		$alveolos[$preg][(4-1)]=$centroxy;
+		$alveolos[$preg][(5-1)]=$centroxy;
 		//-----------------------------------
 	//plot_alveolo($centroxy,28,28);
 	//if($DEPURANDO>=$DEPURACION_BAJA) print "renglon $nr, grupo $gpo, alveolo 1,  centro en ".$centroxy['x'].",".$centroxy['y']."\n";
 		if($DEPURANDO>=$DEPURACION_MEDIA) print "pregunta $preg\n";
-	if($DEPURANDO>=$DEPURACION_MEDIA) print "*renglon ".($nr-1).", grupo ".(4-$gpo).", alveolo ".(4-1).",  centro en ".$centroxy['x'].",".$centroxy['y']."\n";
+	if($DEPURANDO>=$DEPURACION_MEDIA) print "*renglon ".($nr-1).", grupo ".(5-$gpo).", alveolo ".(5-1).",  centro en ".$centroxy['x'].",".$centroxy['y']."\n";
 
 	//for($n=2; $n<=4; $n++){
 	for($n=2; $n<=5; $n++){ // 5 alveolos en media superior
@@ -128,12 +128,12 @@ for($preg=129,$nr=1; $nr<=24; $nr++,$preg+=97){  // numero de renglon, no exiten
 		$centroxy=ajusta_centro($centroxy);
 		if($DEPURANDO>=$DEPURACION_MEDIA) print "alveolo $n centro corregido en ".$centroxy['x'].",".$centroxy['y']."\n";
 		//-----------------------------------
-		$alveolos[$preg][(4-$n)]=$centroxy;
+		$alveolos[$preg][(5-$n)]=$centroxy;
 		//-----------------------------------
 		//plot_alveolo($centroxy,28,28);
 		//if($DEPURANDO>=$DEPURACION_BAJA) print "renglon $nr, grupo $gpo, alveolo $n,  centro en ".$centroxy['x'].",".$centroxy['y']."\n";
 		if($DEPURANDO>=$DEPURACION_MEDIA) print "pregunta $preg\n";
-		if($DEPURANDO>=$DEPURACION_MEDIA) print "*renglon ".($nr-1).", grupo ".(4-$gpo).", alveolo ".(4-$n).",  centro en ".$centroxy['x'].",".$centroxy['y']."\n";
+		if($DEPURANDO>=$DEPURACION_MEDIA) print "*renglon ".($nr-1).", grupo ".(5-$gpo).", alveolo ".(5-$n).",  centro en ".$centroxy['x'].",".$centroxy['y']."\n";
 	}
 	//printf("termino el encontrar alveolos del grupo $gpo\n");
    	//exit;
