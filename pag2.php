@@ -100,7 +100,8 @@ for($preg=129,$nr=1; $nr<=24; $nr++,$preg+=97){  // numero de renglon, no exiten
    for($gpo=1; $gpo<=4; $gpo++,$preg-=24){
 	if($DEPURANDO>=$DEPURACION_MEDIA) echo "GRUPO $gpo, Buscando 1er alveolo a la izq de la marca de tiempo\n";
 	$pxy=encontrar_alveolo_a_la_izq($pxy[0]-10,$pxy[1]);
-	if($preg>150 AND $pxy[0]<1200){ // no exiten alveolos en el grupo de mas a la derecha, prego 150 y 151
+	//if($preg>150 AND $pxy[0]<1200){ // no exiten alveolos en el grupo de mas a la derecha, prego 150 y 151
+	if($preg>150 AND $pxy[0]<1480){ // no exiten alveolos en el grupo de mas a la derecha, prego 150 y 151
 		$preg=$preg-24;
 		$gpo++;
 	}
@@ -193,9 +194,11 @@ for($np=57; $np<=150; $np++){
 }
 }
 else if($DEPURANDO>=$RESULTADOS){
-	for($np=57; $np<=120; $np++){
+	for($np=57; $np<=100; $np++){
+	//for($np=57; $np<=120; $np++){
                 $r = $respuesta[$np] & 15;
-                for ($cont = 0, $b=0; $b < 4; $b++)
+                //for ($cont = 0, $b=0; $b < 4; $b++)
+                for ($cont = 0, $b=0; $b < 5; $b++)
                         if ($r & pow (2, $b))
                                 $cont++;
                 if ($cont == 0)
@@ -530,6 +533,7 @@ function plot_mt($xy,$w,$h){
 
 function debug_image(){
 	global $image, $width, $height, $pixelesdebug, $filename;
+	echo "generando imagen de depuracion $filename\n";
 	$im = $image->getImage();
 	$im->setImageColorspace (imagick::COLORSPACE_RGB);
 	$im->setImageFormat("jpeg");
